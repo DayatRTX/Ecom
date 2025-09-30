@@ -1,16 +1,13 @@
 <?php
 include 'config.php';
 
-// Ambil ID produk dari URL, pastikan itu adalah angka
 $product_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 if ($product_id === 0) {
-    // Jika ID tidak valid, alihkan kembali ke halaman utama
     header('Location: index.php');
     exit();
 }
 
-// Ambil data produk spesifik dari database menggunakan prepared statement
 $sql = "SELECT * FROM produk WHERE id_produk = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $product_id);
@@ -20,7 +17,6 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $product = $result->fetch_assoc();
 } else {
-    // Jika produk dengan ID tersebut tidak ditemukan
     $product = null;
 }
 
@@ -37,7 +33,7 @@ $conn->close();
 </head>
 <body>
 
-    <?php include 'header.php'; // Menggunakan header yang sama ?>
+    <?php include 'header.php'; ?>
 
     <main class="product-detail-page">
         <?php if ($product): ?>

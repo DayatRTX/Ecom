@@ -1,4 +1,3 @@
-/* Definisikan variabel global di awal */
 :root {
   --warna-utama: #4c3e31;
   --warna-sekunder: #f2efe1;
@@ -12,7 +11,6 @@
   --warna-border-terang: #eee;
 }
 
-/* Reset dan Pengaturan Dasar */
 * {
   margin: 0;
   padding: 0;
@@ -41,7 +39,6 @@ footer {
   color: var(--warna-sekunder);
 }
 
-/* Header */
 .main-header {
   background-color: var(--warna-utama);
   color: var(--warna-sekunder);
@@ -89,7 +86,6 @@ footer {
   fill: var(--warna-putih);
 }
 
-/* Keranjang & Counter */
 .cart-link {
   position: relative;
   display: inline-block;
@@ -109,7 +105,6 @@ footer {
   border: 1px solid var(--warna-sekunder);
 }
 
-/* Halaman Daftar Produk */
 .section-title {
   text-align: center;
   font-size: 2rem;
@@ -157,7 +152,6 @@ footer {
   color: var(--warna-utama);
 }
 
-/* Filter Kategori */
 .category-filters {
   display: flex;
   justify-content: center;
@@ -188,7 +182,6 @@ footer {
   border-color: var(--warna-utama);
 }
 
-/* Halaman Detail Produk & Keranjang (Layout Umum) */
 .product-detail-page,
 .cart-page {
   max-width: 1200px;
@@ -206,9 +199,8 @@ footer {
 
 .cart-container {
   padding: 20px;
-} /* Override padding khusus untuk keranjang */
+}
 
-/* Halaman Detail Produk (Spesifik) */
 .product-detail-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -272,7 +264,6 @@ footer {
   border-radius: 5px;
 }
 
-/* Halaman Keranjang (Spesifik) */
 .cart-header,
 .cart-item {
   display: grid;
@@ -378,7 +369,6 @@ footer {
   font-size: 1.5rem;
 }
 
-/* Kontrol Kuantitas di Keranjang */
 .quantity-control {
   display: flex;
   justify-content: center;
@@ -413,7 +403,6 @@ footer {
   background-color: #e0e0e0;
 }
 
-/* Komponen Tombol (Buttons) */
 .action-buttons {
   margin-top: 30px;
   display: flex;

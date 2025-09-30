@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // === LOGIKA UNTUK TOMBOL "MASUKKAN KERANJANG" DI HALAMAN DETAIL ===
   const addToCartBtn = document.getElementById("add-to-cart-btn");
 
   if (addToCartBtn) {
@@ -22,9 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            // PERBAIKAN FINAL: Menggunakan data.cart_count
             updateCartCounter(data.cart_count);
-            this.textContent = "✔ Berhasil";
+            this.textContent = "\u2714 Berhasil";
             setTimeout(() => {
               this.textContent = "Masukkan Keranjang";
               this.disabled = false;
@@ -44,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // === LOGIKA UNTUK UPDATE KUANTITAS DI HALAMAN KERANJANG ===
   const cartContainer = document.querySelector(".cart-container");
 
   if (cartContainer) {
@@ -99,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
             grandTotalEl.textContent = data.new_grand_total_formatted;
           }
 
-          // PERBAIKAN FINAL: Menggunakan data.cart_count
           updateCartCounter(data.cart_count);
 
           if (data.new_quantity <= 0) {
@@ -120,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => console.error("Error:", error));
   }
 
-  // === FUNGSI BANTU UNTUK UPDATE COUNTER HEADER (VERSI BARU YANG LEBIH BAIK) ===
   function updateCartCounter(count) {
     const cartLink = document.querySelector(".cart-link");
     if (!cartLink) return;

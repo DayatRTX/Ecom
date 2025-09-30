@@ -1,44 +1,34 @@
 <?php
-// Mengimpor file koneksi database
 include 'config.php';
 
-// --- LOGIKA PENGAMBILAN DATA ---
-
-// 1. Ambil semua kategori untuk tombol filter
 $sql_kategori = "SELECT * FROM kategori ORDER BY nama_kategori ASC";
 $result_kategori = $conn->query($sql_kategori);
 
-// 2. Cek parameter dari URL untuk filtering & searching
 $search_term = isset($_GET['search']) ? trim($_GET['search']) : '';
 $kategori_id = isset($_GET['kategori']) ? (int)$_GET['kategori'] : 0;
 
-// 3. Bangun query produk secara dinamis
 $sql_produk = "SELECT id_produk, nama_produk, harga, gambar FROM produk WHERE 1=1";
 $params = [];
 $types = '';
 
-// Tambahkan kondisi pencarian jika ada
 if (!empty($search_term)) {
     $sql_produk .= " AND nama_produk LIKE ?";
     $params[] = "%" . $search_term . "%";
     $types .= 's';
 }
 
-// Tambahkan kondisi filter kategori jika ada
 if ($kategori_id > 0) {
     $sql_produk .= " AND id_kategori = ?";
     $params[] = $kategori_id;
     $types .= 'i';
 }
 
-// 4. Eksekusi query produk dengan prepared statement
 $stmt = $conn->prepare($sql_produk);
 if (!empty($params)) {
     $stmt->bind_param($types, ...$params);
 }
 $stmt->execute();
 $result_produk = $stmt->get_result();
-
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -50,14 +40,11 @@ $result_produk = $stmt->get_result();
 </head>
 <body>
 
-    <?php include 'header.php'; // Memanggil file header terpisah ?>
+    <?php include 'header.php'; ?>
 
     <main>
         <h2 class="section-title">
-            <?php 
-            // Judul dinamis berdasarkan pencarian
-            echo !empty($search_term) ? 'Hasil Pencarian untuk "' . htmlspecialchars($search_term) . '"' : 'Produk Terlaris';
-            ?>
+            <?php echo !empty($search_term) ? 'Hasil Pencarian untuk "' . htmlspecialchars($search_term) . '"' : 'Produk Terlaris'; ?>
         </h2>
 
         <div class="category-filters">
@@ -75,7 +62,6 @@ $result_produk = $stmt->get_result();
         <div class="product-grid">
             <?php
             if ($result_produk->num_rows > 0) {
-                // Loop untuk menampilkan setiap produk
                 while($row = $result_produk->fetch_assoc()) {
             ?>
                     <div class="product-card">
@@ -90,7 +76,6 @@ $result_produk = $stmt->get_result();
             } else {
                 echo "<p>Produk tidak ditemukan.</p>";
             }
-            // Menutup statement dan koneksi
             $stmt->close();
             $conn->close();
             ?>

@@ -1,6 +1,5 @@
 <?php
-include 'config.php'; // config.php sudah menjalankan session_start()
-
+include 'config.php';
 $cart_items = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 $products = [];
 $total_harga = 0;
@@ -8,7 +7,6 @@ $total_harga = 0;
 if (!empty($cart_items)) {
     $product_ids = array_keys($cart_items);
     
-    // Ambil detail semua produk yang ada di keranjang dengan aman
     $placeholders = implode(',', array_fill(0, count($product_ids), '?'));
     $sql = "SELECT * FROM produk WHERE id_produk IN ($placeholders)";
     
