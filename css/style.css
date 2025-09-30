@@ -1,0 +1,458 @@
+/* Definisikan variabel global di awal */
+:root {
+  --warna-utama: #4c3e31;
+  --warna-sekunder: #f2efe1;
+  --warna-teks: #333;
+  --warna-teks-terang: #555;
+  --warna-putih: #fff;
+  --warna-aksen-merah: #e74c3c;
+  --warna-aksen-merah-gelap: #c0392b;
+  --warna-aksen-oranye: #e67e22;
+  --warna-border: #ddd;
+  --warna-border-terang: #eee;
+}
+
+/* Reset dan Pengaturan Dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--warna-sekunder);
+  color: var(--warna-teks);
+}
+
+main {
+  flex-grow: 1;
+  padding: 40px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: var(--warna-utama);
+  color: var(--warna-sekunder);
+}
+
+/* Header */
+.main-header {
+  background-color: var(--warna-utama);
+  color: var(--warna-sekunder);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid var(--warna-sekunder);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-button {
+  background-color: var(--warna-aksen-oranye);
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button svg {
+  fill: var(--warna-putih);
+}
+
+/* Keranjang & Counter */
+.cart-link {
+  position: relative;
+  display: inline-block;
+  color: var(--warna-sekunder);
+}
+
+.cart-counter {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: var(--warna-aksen-merah);
+  color: var(--warna-putih);
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid var(--warna-sekunder);
+}
+
+/* Halaman Daftar Produk */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--warna-utama);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background-color: var(--warna-putih);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin: 15px 10px;
+  color: var(--warna-teks);
+}
+
+.product-card .price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--warna-utama);
+}
+
+/* Filter Kategori */
+.category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.category-filters a {
+  text-decoration: none;
+  color: var(--warna-utama);
+  background-color: var(--warna-putih);
+  padding: 10px 20px;
+  border: 1px solid var(--warna-border);
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.category-filters a:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+.category-filters a.active {
+  background-color: var(--warna-utama);
+  color: var(--warna-sekunder);
+  border-color: var(--warna-utama);
+}
+
+/* Halaman Detail Produk & Keranjang (Layout Umum) */
+.product-detail-page,
+.cart-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.product-detail-container,
+.cart-container {
+  background-color: var(--warna-putih);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cart-container {
+  padding: 20px;
+} /* Override padding khusus untuk keranjang */
+
+/* Halaman Detail Produk (Spesifik) */
+.product-detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+}
+
+.product-image-container img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-info-container .product-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.product-info-container .product-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--warna-aksen-merah-gelap);
+  margin-bottom: 25px;
+}
+
+.product-description {
+  border-top: 1px solid var(--warna-border-terang);
+  border-bottom: 1px solid var(--warna-border-terang);
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.product-description h3 {
+  margin-bottom: 10px;
+  color: var(--warna-utama);
+}
+
+.product-description p {
+  text-align: justify;
+  line-height: 1.6;
+  color: var(--warna-teks-terang);
+}
+
+.quantity-selector {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quantity-selector label {
+  font-weight: bold;
+}
+
+.quantity-selector input {
+  width: 70px;
+  padding: 8px;
+  text-align: center;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Halaman Keranjang (Spesifik) */
+.cart-header,
+.cart-item {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid var(--warna-border-terang);
+}
+
+.cart-header {
+  font-weight: bold;
+  color: var(--warna-teks-terang);
+  border-bottom: 2px solid var(--warna-border);
+}
+
+.header-product,
+.item-product {
+  grid-column: 1 / 2;
+}
+.header-price,
+.item-price {
+  grid-column: 2 / 3;
+  text-align: right;
+}
+.header-quantity,
+.item-quantity {
+  grid-column: 3 / 4;
+  text-align: center;
+}
+.header-total,
+.item-total {
+  grid-column: 4 / 5;
+  text-align: right;
+}
+.header-action,
+.item-action {
+  grid-column: 5 / 6;
+  text-align: center;
+}
+
+.item-product {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.item-product img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border: 1px solid var(--warna-border-terang);
+  border-radius: 4px;
+}
+
+.item-product a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+}
+
+.item-product a:hover {
+  text-decoration: underline;
+}
+
+.item-price,
+.item-total {
+  font-weight: 500;
+}
+
+.item-action a {
+  color: var(--warna-aksen-merah);
+  text-decoration: none;
+}
+.item-action a:hover {
+  text-decoration: underline;
+}
+
+.cart-summary {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+.summary-total {
+  font-size: 1.2rem;
+}
+
+.summary-total .total-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--warna-aksen-merah-gelap);
+  margin-left: 10px;
+}
+
+.cart-empty,
+.not-found {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.5rem;
+}
+
+/* Kontrol Kuantitas di Keranjang */
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qty-input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid var(--warna-border);
+  border-radius: 4px;
+  padding: 5px;
+  margin: 0 5px;
+  -moz-appearance: textfield;
+}
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qty-btn {
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--warna-border);
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.qty-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Komponen Tombol (Buttons) */
+.action-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--warna-aksen-merah);
+  color: var(--warna-putih);
+  border: 1px solid var(--warna-aksen-merah);
+}
+
+.btn-primary:hover {
+  background-color: var(--warna-aksen-merah-gelap);
+}
+
+.btn-outline {
+  background-color: var(--warna-putih);
+  color: var(--warna-aksen-merah);
+  border: 1px solid var(--warna-aksen-merah);
+  min-width: 210px;
+}
+
+.btn-outline:hover {
+  background-color: var(--warna-aksen-merah);
+  color: var(--warna-putih);
+}
+
+.btn-checkout {
+  padding: 15px 40px;
+}
