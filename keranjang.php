@@ -78,7 +78,7 @@ if (!empty($cart_items)) {
                             Rp <?php echo number_format($subtotal, 0, ',', '.'); ?>
                         </div>
                         <div class="item-action">
-                            <a href="config/hapus_item.php?id=<?php echo $id; ?>">Hapus</a>
+                            <a href="api/hapus_item.php?id=<?php echo $id; ?>">Hapus</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

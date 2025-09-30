@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/../config/config.php';
 if (isset($_GET['id'])) {
     $id_produk = (int)$_GET['id'];
     unset($_SESSION['cart'][$id_produk]);

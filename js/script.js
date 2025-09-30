@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.textContent = "Menambahkan...";
       this.disabled = true;
 
-      fetch("config/tambah_keranjang.php", {
+      fetch("/ecom/api/tambah_keranjang.php", {
         method: "POST",
         body: formData,
       })
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formData.append("id_produk", productId);
     formData.append("quantity", quantity);
 
-    fetch("config/update_keranjang.php", {
+    fetch("/ecom/api/update_keranjang.php", {
       method: "POST",
       body: formData,
     })
