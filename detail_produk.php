@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include 'config/config.php';
 
 $product_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 

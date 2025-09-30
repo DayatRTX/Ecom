@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include 'config/config.php';
 $cart_items = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 $products = [];
 $total_harga = 0;
@@ -78,7 +78,7 @@ if (!empty($cart_items)) {
                             Rp <?php echo number_format($subtotal, 0, ',', '.'); ?>
                         </div>
                         <div class="item-action">
-                            <a href="hapus_item.php?id=<?php echo $id; ?>">Hapus</a>
+                            <a href="config/hapus_item.php?id=<?php echo $id; ?>">Hapus</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include 'config/config.php';
 
 $sql_kategori = "SELECT * FROM kategori ORDER BY nama_kategori ASC";
 $result_kategori = $conn->query($sql_kategori);
