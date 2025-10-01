@@ -442,6 +442,7 @@ footer {
 }
 
 .btn {
+  display: inline-block;
   padding: 15px 30px;
   border-radius: 5px;
   font-size: 1rem;
@@ -728,4 +729,52 @@ footer {
 .logo {
   height: clamp(50px, 8vh, 65px);
   width: auto;
+}
+
+.checkout-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.construction-container {
+  background-color: var(--warna-putih);
+  padding: 50px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.construction-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.construction-message h2 {
+  font-size: 2.5rem;
+  color: var(--warna-utama);
+  margin-bottom: 20px;
+}
+
+.construction-message p {
+  font-size: 1.1rem;
+  color: var(--warna-teks-terang);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.construction-message .btn {
+  margin-top: 5px;
+}
+
+.btn-brown {
+  background-color: var(--warna-utama);
+  color: var(--warna-putih);
+  border: 1px solid var(--warna-utama);
+}
+
+.btn-brown:hover {
+  background-color: #645242;
+  border-color: #645242;
 }

@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
     $stmt_delete->bind_param("i", $id_produk);
 
     if ($stmt_delete->execute()) {
-        header("Location: ../admin/index_admin.php?status=sukses_hapus");
+        header("Location: ../admin/index.php?status=sukses_hapus");
         exit();
     } else {
         echo "Error: " . $stmt_delete->error;

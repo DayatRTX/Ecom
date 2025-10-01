@@ -44,7 +44,7 @@ $result = $conn->query($sql);
                         <td><?php echo $row['stok']; ?></td>
                         <td class="action-links">
                             <a href="edit_produk.php?id=<?php echo $row['id_produk']; ?>" class="edit">Edit</a>
-                            <a href="hapus_produk.php?id=<?php echo $row['id_produk']; ?>" class="delete" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?');">Hapus</a>
+                            <a href="../api/hapus_produk.php?id=<?php echo $row['id_produk']; ?>" class="delete" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?');">Hapus</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

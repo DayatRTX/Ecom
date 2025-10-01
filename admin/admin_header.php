@@ -10,7 +10,7 @@
 <body class="admin">
     <header class="main-header admin-header">
         <div class="admin-brand">
-            <a href="index_admin.php" class="brand-link">Admin Panel</a>
+            <a href="index.php" class="brand-link">Admin Panel</a>
             <span class="brand-sub">Rodaluka</span>
         </div>
         <div class="admin-header-actions">
