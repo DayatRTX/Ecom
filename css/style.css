@@ -47,6 +47,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 25px;
 }
 
 .admin .main-header.admin-header {
@@ -716,4 +717,15 @@ footer {
   .preview-panel {
     order: -1;
   }
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.logo {
+  height: clamp(50px, 8vh, 65px);
+  width: auto;
 }

@@ -1,8 +1,11 @@
 <?php
-
 $cart_count = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 ?>
 <header class="main-header">
+    <a href="index.php" class="logo-link">
+        <img src="assets/logo.png" alt="Rodaluka Acoustic Logo" class="logo">
+    </a>
+
     <div class="search-container">
         <form action="index.php" method="GET" class="search-bar">
             <input type="text" name="search" placeholder="Cari gitar impianmu...">

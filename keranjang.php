@@ -29,6 +29,7 @@ if (!empty($cart_items)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keranjang Belanja - Toko GitarKu</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body>
     <?php include 'header.php'; ?>
