@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssdisii", $nama_produk, $merek, $gambar_name, $harga, $stok, $deskripsi, $id_kategori, $id_produk);
 
     if ($stmt->execute()) {
-        header("Location: /ecom/admin/edit_produk.php?id=" . $id_produk . "&status=sukses");
+        header("Location: ../admin/edit_produk.php?id=" . $id_produk . "&status=sukses");
         exit();
     } else {
         echo "Error: " . $stmt->error;

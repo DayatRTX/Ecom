@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sssdisi", $nama_produk, $merek, $gambar_name, $harga, $stok, $deskripsi, $id_kategori);
 
         if ($stmt->execute()) {
-            header("Location: /ecom/admin/tambah_produk.php?status=sukses");
+            header("Location: ../admin/tambah_produk.php?status=sukses");
             exit();
         } else {
             echo "Error: " . $stmt->error;
